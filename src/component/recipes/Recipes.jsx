@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faFire } from '@fortawesome/free-solid-svg-icons';
 
-const Recipes = ({ recipe }) => {
+const Recipes = ({ recipe,handelCook}) => {
+    // console.log(recipe);
     return (
         <div>
             <div className="card bg-base-100 shadow-xl border border-[#28282833] p-5 space-y-5">
@@ -18,11 +19,11 @@ const Recipes = ({ recipe }) => {
                     
                     <hr />
                     <div className='flex gap-10 text-[#282828CC]'>
-                        <p ><span><FontAwesomeIcon icon={faClock} /></span> 30 minutes</p>
-                        <p><span><FontAwesomeIcon icon={faFire} /></span> 600 calories</p>
+                        <p ><span><FontAwesomeIcon icon={faClock} /></span> {recipe.preparing_time} minutes</p>
+                        <p><span><FontAwesomeIcon icon={faFire} /></span> {recipe.calories} calories</p>
                     </div>
                     <div className="card-actions">
-                        <button className="btn bg-[#0BE58A] px-6 rounded-full">Want to Cook</button>
+                        <button onClick={()=>handelCook(recipe)}  className="btn bg-[#0BE58A] px-6 rounded-full">Want to Cook</button>
                     </div>
                 </div>
             </div>
