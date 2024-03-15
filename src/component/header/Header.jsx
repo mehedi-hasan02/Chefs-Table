@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
+import {faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
                         <li><a>Search</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Recipe Calories</a>
+                <a className="btn btn-ghost text-3xl">Recipe Calories</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

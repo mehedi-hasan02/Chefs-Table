@@ -77,7 +77,7 @@ function App() {
             recipes.map(recipe => <Recipes key={recipe.id} recipe={recipe} handelCook={handelCook}></Recipes>)
           }
         </div>
-        <div className="w-[40%] border border-black">
+        <div className="w-[40%] border border-[#28282833] rounded-xl">
           <div>
             <div className='text-center mt-10'>
               <h1 className='text-2xl font-semibold'>Want to cook: {cookCount}</h1>
@@ -93,7 +93,7 @@ function App() {
               {
                 recipe.map((item, index) => (
 
-                  <div key={index} className='flex gap-10 bg-base-300 my-2 py-3 items-center'>
+                  <div key={index} className='flex gap-10 bg-base-300 my-2 py-3 items-center rounded-xl'>
 
                     <div className='flex'>
                       <div className='mt-4 ml-3'>
@@ -134,8 +134,8 @@ function App() {
             <div>
               {
                 currCook.map((item, index) => (
-                  <div>
-                    <div key={index} className='flex gap-10 bg-base-300 my-2 py-3 items-center'>
+                  <div key={index}>
+                    <div className='flex gap-10 bg-base-300 my-2 py-3 items-center rounded-xl'>
                       <div className='flex'>
                         <div className='mt-4 ml-3'>
                           <p>{index + 1}</p>
