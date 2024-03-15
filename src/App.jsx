@@ -1,5 +1,7 @@
 
 import './App.css'
+import Banner from './component/banner/Banner'
+import Header from './component/header/Header'
 
 function App() {
 
@@ -7,7 +9,8 @@ function App() {
   return (
     <>
      
-      <h1 className='text-3xl text-primary'>Vite + React</h1>
+      <Header></Header>
+      <Banner></Banner>
       
     </>
   )
