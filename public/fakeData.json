@@ -1,0 +1,57 @@
+[
+    {
+      "recipe_image": "https://i.ibb.co/HhGS03Q/yubraj-timsina-e-I-Uk6u-GCOQ-unsplash.jpg",
+      "recipe_id": 1,
+      "recipe_name": "Chicken Curry",
+      "short_description": "A flavorful and aromatic chicken curry that is perfect for any occasion.",
+      "ingredients": ["550 g chicken", "120 ml coconut milk", "200 g onion", "100 g tomato", "4 cloves garlic", "2 tbsp curry powder"],
+      "preparing_time": 45,
+      "calories": 380
+    },
+    {
+      "recipe_image": "https://i.ibb.co/m0VgjWr/homescreenify-s-A3wym-Yqya-I-unsplash.jpg",
+      "recipe_id": 2,
+      "recipe_name": "Spaghetti Bolognese",
+      "short_description": "Classic Italian pasta dish with a rich and hearty meat sauce.",
+      "ingredients": ["400 g spaghetti", "300 g ground beef", "200 g tomato sauce", "100 g onion", "2 cloves garlic", "50 g parmesan cheese"],
+      "preparing_time": 40,
+      "calories": 420
+    },
+    {
+      "recipe_image": "https://i.ibb.co/pnK67G5/stacey-doyle-d-Odt-Mzvjoc4-unsplash.jpg",
+      "recipe_id": 3,
+      "recipe_name": "Vegetable Stir Fry",
+      "short_description": "A quick and colorful stir-fry packed with nutritious veggies and a savory sauce.",
+      "ingredients": ["300 g mixed vegetables", "200 g tofu", "100 g snow peas", "50 g soy sauce", "2 cloves garlic", "1 tbsp sesame oil"],
+      "preparing_time": 25,
+      "calories": 280
+    },
+    {
+      "recipe_image": "https://i.ibb.co/16FqZWY/ca-creative-bp-PTl-XWTOvg-unsplash.jpg",
+      "recipe_id": 4,
+      "recipe_name": "Grilled Salmon",
+      "short_description": "Juicy and flavorful grilled salmon seasoned with herbs and lemon.",
+      "ingredients": ["4 salmon fillets", "50 ml olive oil", "2 lemons", "4 cloves garlic", "1 tbsp dill", "Salt and pepper to taste"],
+      "preparing_time": 20,
+      "calories": 320
+    },
+    {
+      "recipe_image": "https://i.ibb.co/gt73LV8/evangelina-silina-Dcrpmris9-Yc-unsplash.jpg",
+      "recipe_id": 5,
+      "recipe_name": "Banana Bread",
+      "short_description": "Moist and delicious banana bread with a hint of cinnamon and walnuts.",
+      "ingredients": ["3 ripe bananas", "200 g all-purpose flour", "100 g sugar", "2 eggs", "50 g walnuts", "1 tsp cinnamon"],
+      "preparing_time": 50,
+      "calories": 230
+    },
+    {
+      "recipe_image": "https://i.ibb.co/nf0ncmD/ella-olsson-fx-JTl-g-Dh28-unsplash.jpg",
+      "recipe_id": 6,
+      "recipe_name": "Vegetable Soup",
+      "short_description": "Warm and comforting vegetable soup filled with seasonal veggies and fragrant herbs.",
+      "ingredients": ["500 g mixed vegetables", "1 liter vegetable broth", "2 cloves garlic", "1 onion", "50 g parsley", "Salt and pepper to taste"],
+      "preparing_time": 35,
+      "calories": 150
+    }
+  ]
+  
