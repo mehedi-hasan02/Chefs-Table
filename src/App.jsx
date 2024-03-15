@@ -15,6 +15,8 @@ function App() {
   const [showToast, setShowToast] = useState(false);
   const [cookCount, setCookCount] = useState(0);
   const [currCook, setCurrCook] = useState([]);
+  const [totalTime, setTime] = useState(0);
+  const [totalCalories,setCalorie] = useState(0);
 
   useEffect(() => {
     const allRecipes = async () => {
@@ -42,18 +44,23 @@ function App() {
 
   const incrementCookCount = () => {
     setCookCount(cookCount + 1);
-  }
+  } 
 
   const hamdelRemove = (r) => {
     setCurrCook([...currCook, r]);
     const newRecipe = recipe.filter(item => item.recipe_id !== r.recipe_id);
     setRecipe(newRecipe);
+    setTime(totalTime + r.preparing_time)
+    setCalorie(totalCalories + r.calories)
   }
 
   // console.log(currCook);
 
-  let totalTime = 0;
-  let totalCalories = 0;
+  // let totalTime = 0;
+  // let totalCalories = 0;
+  console.log(totalTime);
+  console.log(totalCalories);
+
 
 
   return (
@@ -92,6 +99,7 @@ function App() {
             <div>
               {
                 recipe.map((item, index) => (
+                  
 
                   <div key={index} className='flex gap-10 bg-base-300 my-2 py-3 items-center rounded-xl'>
 
@@ -153,18 +161,19 @@ function App() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div>
-                      <p>Total Time = {totalTime += item.preparing_time} minutes</p>
-                      <p>Total calories = {totalCalories += item.calories}</p>
-                    </div>
+                    </div>   
                   </div>
-
-
                 ))
+
               }
+              <div>
+                <p>Total Time = {totalTime } minutes</p>
+                <p>Total calories = {totalCalories }</p>
+              </div>
             </div>
           </div>
+
+          {/* {console.log(totalTime)} */}
 
         </div>
 
