@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     const allRecipes = async () => {
-      const res = await fetch('../public/fakeData.json');
+      const res = await fetch('./fakeData.json');
       const data = await res.json();
       setRecipes(data);
     }
@@ -75,17 +75,18 @@ function App() {
       <Banner></Banner>
       <RecipeTitle></RecipeTitle>
 
-      <div className="flex gap-10 mt-12 relative">
+      <div className="flex gap-10 mt-12 ">
         <div className="flex-1 grid grid-cols-2 gap-5 ">
           {showToast && (
           // toast-top toast-center
-            <div className="toast absolute right-0 top-[-30px] z-10">
+            <div className="toast toast-top toast-end z-10">
               <div className="alert alert-info">
                 <span>Recipe already added!</span>
               </div>
             </div>
           )}
           {
+
 
             recipes.map(recipe => <Recipes key={recipe.id} recipe={recipe} handelCook={handelCook}></Recipes>)
           }
@@ -101,7 +102,7 @@ function App() {
             <div className="overflow-x-auto">
               <table className="table ">
                 <thead>
-                  <tr>
+                  <tr >
                     <th></th>
                     <th>Name</th>
                     <th>Time</th>
@@ -109,7 +110,7 @@ function App() {
                     <th></th>
                   </tr>
                 </thead>
-                <tbody className='bg-base-200'>
+                <tbody className='bg-base-200 mb-2'>
 
                   {
                     recipe.map((item, index) => (
@@ -133,7 +134,6 @@ function App() {
               <h1 className='text-2xl font-semibold mt-7'>Currently cooking: {currCookCount}</h1>
             </div>
             <hr className='w-[60%] mx-auto mt-2' />
-
 
             <div className="overflow-x-auto">
               <table className="table">
@@ -168,51 +168,8 @@ function App() {
                 <p >Total calories = <br /> {totalCalories} calories</p>
               </div>
             </div>
-
-
-            {/* <div className='flex justify-around mt-5'>
-              <p>Name</p>
-              <p>Time</p>
-              <p>Calories</p>
-            </div> */}
-            {/* <div>
-              {
-                currCook.map((item, index) => (
-                  <div key={index}>
-                    <div className='flex gap-10 bg-base-300 my-2 py-3 items-center rounded-xl'>
-                      <div className='flex'>
-                        <div className='mt-4 ml-3'>
-                          <p>{index + 1}</p>
-                        </div>
-                        <div className='flex gap-20 ml-10'>
-                          <div className='w-[50px] mt-3'>
-
-                            <p>{item.recipe_name}</p>
-                          </div>
-                          <div className='w-[50px] mt-3'>
-                            <p>{item.preparing_time} minutes</p>
-                          </div>
-                          <div className='w-[50px] mt-3'>
-                            <p>{item.calories} calories</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))
-
-              }
-              {/* <div className='flex gap-10 ml-10 mt-6 font-semibold'>
-                <p >Total Time = <br />{totalTime} minutes</p>
-                <p >Total calories = <br /> {totalCalories} calories</p>
-              </div> 
-            </div> */}
           </div>
-
-          {/* {console.log(totalTime)} */}
-
         </div>
-
       </div>
 
     </>
