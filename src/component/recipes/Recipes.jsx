@@ -13,7 +13,7 @@ const Recipes = ({ recipe,handelCook}) => {
                     <hr />
                     <p className='text-xl font-[500]'>Ingredients: {recipe.ingredients.length}</p>
                     
-                        {recipe.ingredients.map((item, index) => (
+                        {recipe.ingredients.slice(0, 3).map((item, index) => (
                             <li className='text-[#878787] ml-2' key={index}>{item}</li>
                         ))}
                     
