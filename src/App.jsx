@@ -16,7 +16,8 @@ function App() {
   const [cookCount, setCookCount] = useState(0);
   const [currCook, setCurrCook] = useState([]);
   const [totalTime, setTime] = useState(0);
-  const [totalCalories,setCalorie] = useState(0);
+  const [totalCalories, setCalorie] = useState(0);
+  const [currCookCount, setCurrCookCount] = useState(0);
 
   useEffect(() => {
     const allRecipes = async () => {
@@ -33,7 +34,7 @@ function App() {
     const isExit = recipe.find(rc => rc.recipe_id === c.recipe_id);
     if (!isExit) {
       setRecipe([...recipe, c]);
-      incrementCookCount();
+      increaseCookCount();
     } else {
       setShowToast(true);
       setTimeout(() => {
@@ -42,9 +43,17 @@ function App() {
     }
   }
 
-  const incrementCookCount = () => {
+  const increaseCookCount = () => {
     setCookCount(cookCount + 1);
-  } 
+  }
+
+  const decreaseCookCount = () =>{
+    setCookCount(cookCount - 1);
+  }
+
+  const increaseCurrCookCount = () =>{
+    setCurrCookCount(currCookCount + 1);
+  }
 
   const hamdelRemove = (r) => {
     setCurrCook([...currCook, r]);
@@ -52,14 +61,10 @@ function App() {
     setRecipe(newRecipe);
     setTime(totalTime + r.preparing_time)
     setCalorie(totalCalories + r.calories)
+    decreaseCookCount();
+    increaseCurrCookCount();
   }
 
-  // console.log(currCook);
-
-  // let totalTime = 0;
-  // let totalCalories = 0;
-  console.log(totalTime);
-  console.log(totalCalories);
 
 
 
@@ -70,10 +75,11 @@ function App() {
       <Banner></Banner>
       <RecipeTitle></RecipeTitle>
 
-      <div className="flex gap-10 mt-12">
+      <div className="flex gap-10 mt-12 relative">
         <div className="flex-1 grid grid-cols-2 gap-5 ">
           {showToast && (
-            <div className="toast toast-top toast-center">
+          // toast-top toast-center
+            <div className="toast absolute right-0 top-[-30px] z-10">
               <div className="alert alert-info">
                 <span>Recipe already added!</span>
               </div>
@@ -91,55 +97,85 @@ function App() {
 
             </div>
             <hr className='w-[60%] mx-auto mt-2' />
-            <div className='flex gap-20 ml-14 mt-5'>
-              <p>Name</p>
-              <p>Time</p>
-              <p>Calories</p>
+
+            <div className="overflow-x-auto">
+              <table className="table ">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Calories</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody className='bg-base-200'>
+
+                  {
+                    recipe.map((item, index) => (
+
+                      <tr key={index}>
+                        <th>{index + 1}</th>
+                        <td>{item.recipe_name}</td>
+                        <td>{item.preparing_time} minutes</td>
+                        <td>{item.calories} calories</td>
+                        <td><button onClick={() => hamdelRemove(item)} className='btn bg-[#0BE58A] rounded-full hover:bg-[#0BE58A]'>Preparing</button></td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
             </div>
-            <div>
-              {
-                recipe.map((item, index) => (
-                  
 
-                  <div key={index} className='flex gap-10 bg-base-300 my-2 py-3 items-center rounded-xl'>
-
-                    <div className='flex'>
-                      <div className='mt-4 ml-3'>
-                        <p>{index + 1}</p>
-                      </div>
-                      <div className='flex gap-20 ml-10'>
-                        <div className='w-[50px] mt-3'>
-
-                          <p>{item.recipe_name}</p>
-                        </div>
-                        <div className='w-[50px] mt-3'>
-                          <p>{item.preparing_time} minutes</p>
-                        </div>
-                        <div className='w-[50px] mt-3'>
-                          <p>{item.calories} calories</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <button onClick={() => hamdelRemove(item)} className='btn bg-[#0BE58A] rounded-full hover:bg-[#0BE58A]'>Preparing</button>
-                    </div>
-                  </div>
-
-                ))
-              }
-            </div>
           </div>
           <div>
             <div className='text-center'>
-              <h1 className='text-2xl font-semibold mt-7'>Currently cooking: 02</h1>
+              <h1 className='text-2xl font-semibold mt-7'>Currently cooking: {currCookCount}</h1>
             </div>
             <hr className='w-[60%] mx-auto mt-2' />
-            <div className='flex justify-around mt-5'>
+
+
+            <div className="overflow-x-auto">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Calories</th>
+                  </tr>
+                </thead>
+                <tbody className='bg-base-200'>
+
+                  {
+                    currCook.map((item, index) => (
+
+                      <tr key={index}>
+                        <th>{index + 1}</th>
+                        <td>{item.recipe_name}</td>
+                        <td>{item.preparing_time} minutes</td>
+                        <td>{item.calories} calories</td>
+                        
+                      </tr>
+                    ))
+                  }
+                  
+                </tbody>
+                
+              </table>
+              <div className='flex gap-10 ml-10 mt-6 font-semibold'>
+                <p >Total Time = <br />{totalTime} minutes</p>
+                <p >Total calories = <br /> {totalCalories} calories</p>
+              </div>
+            </div>
+
+
+            {/* <div className='flex justify-around mt-5'>
               <p>Name</p>
               <p>Time</p>
               <p>Calories</p>
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               {
                 currCook.map((item, index) => (
                   <div key={index}>
@@ -161,16 +197,16 @@ function App() {
                           </div>
                         </div>
                       </div>
-                    </div>   
+                    </div>
                   </div>
                 ))
 
               }
-              <div>
-                <p>Total Time = {totalTime } minutes</p>
-                <p>Total calories = {totalCalories }</p>
-              </div>
-            </div>
+              {/* <div className='flex gap-10 ml-10 mt-6 font-semibold'>
+                <p >Total Time = <br />{totalTime} minutes</p>
+                <p >Total calories = <br /> {totalCalories} calories</p>
+              </div> 
+            </div> */}
           </div>
 
           {/* {console.log(totalTime)} */}
