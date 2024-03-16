@@ -75,7 +75,7 @@ function App() {
       <Banner></Banner>
       <RecipeTitle></RecipeTitle>
 
-      <div className="flex flex-col lg:flex-row gap-10 mt-12 ">
+      <div className="flex flex-col lg:flex-row gap-10 mt-12 p-3">
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 ">
           {showToast && (
           // toast-top toast-center
@@ -88,7 +88,7 @@ function App() {
           {
 
 
-            recipes.map(recipe => <Recipes key={recipe.id} recipe={recipe} handelCook={handelCook}></Recipes>)
+            recipes.map(recipe => <Recipes key={recipe.recipe_id} recipe={recipe} handelCook={handelCook}></Recipes>)
           }
         </div>
         <div className="lg:w-[40%] border border-[#28282833] rounded-xl">
